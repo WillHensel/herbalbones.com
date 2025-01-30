@@ -2,12 +2,16 @@ package main
 
 import (
 	"net/http"
-
-	"github.com/a-h/templ"
-	"web.herbalbones.com/ui/pages"
 )
 
 func main() {
-	http.Handle("/", templ.Handler(pages.Home()))
-	http.ListenAndServe("localhost:4000", nil)
+	mux := http.NewServeMux()
+
+	mux.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./ui/static"))))
+
+	mux.Handle("/", http.HandlerFunc(home))
+	mux.Handle("/shop", http.HandlerFunc(shop))
+	mux.Handle("/contact", http.HandlerFunc(contact))
+
+	http.ListenAndServe("localhost:4000", mux)
 }

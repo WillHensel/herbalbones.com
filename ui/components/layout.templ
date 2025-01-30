@@ -8,8 +8,19 @@ templ Layout(content templ.Component) {
             <meta name="viewport" content="width=device-width" />
             
             <title>Herbal Bones</title>
+
+            <link rel="stylesheet" href="/static/site.css" />
         </head> 
         <body>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li> 
+                        <li><a href="/shop">Shop</a></li> 
+                        <li><a href="/contact">Contact</a></li> 
+                    </ul> 
+                </nav>
+            </header>
             @content
         </body>
     </html>
