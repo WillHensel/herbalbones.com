@@ -2,16 +2,23 @@ package main
 
 import (
 	"net/http"
+	"os"
+
+	"web.herbalbones.com/internal/square"
 )
 
 func main() {
-	mux := http.NewServeMux()
 
-	mux.Handle("/static/", http.StripPrefix("/static", http.FileServer(http.Dir("./ui/static"))))
+	squareToken := os.Getenv("SQUARE_ACCESS_TOKEN")
+	square := square.NewSquare(squareToken)
 
-	mux.Handle("/", http.HandlerFunc(home))
-	mux.Handle("/shop", http.HandlerFunc(shop))
-	mux.Handle("/contact", http.HandlerFunc(contact))
+	serviceProvider := serviceProvider{
+		squareService: square,
+	}
 
-	http.ListenAndServe("localhost:4000", mux)
+	application := application{
+		services: serviceProvider,
+	}
+
+	http.ListenAndServe("localhost:4000", application.getRoutes())
 }

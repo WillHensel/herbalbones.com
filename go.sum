@@ -1,2 +1,6 @@
 github.com/a-h/templ v0.3.819 h1:KDJ5jTFN15FyJnmSmo2gNirIqt7hfvBD2VXVDTySckM=
 github.com/a-h/templ v0.3.819/go.mod h1:iDJKJktpttVKdWoTkRNNLcllRI+BlpopJc+8au3gOUo=
+github.com/google/uuid v1.4.0 h1:MtMxsa51/r9yyhkyLsVeVt0B+BGQZzpQiTQ4eHZ8bc4=
+github.com/google/uuid v1.4.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
+github.com/square/square-go-sdk v1.1.0 h1:Ir7jfNk8Apn6ylVXqx7YNmEcYMagEmIEfO+WluLR/A0=
+github.com/square/square-go-sdk v1.1.0/go.mod h1:kmGZS8W7V9QrM/bgYfSCaPw6FsPRlhjHiHqVKtVqo20=
