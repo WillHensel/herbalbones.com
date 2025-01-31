@@ -12,7 +12,34 @@ func (app *application) home(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *application) shop(w http.ResponseWriter, r *http.Request) {
-	pages.Shop().Render(r.Context(), w)
+
+	catalogItems, err := app.services.squareService.CatalogList()
+	if err != nil {
+		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		return
+	}
+
+	model := []pages.ShopPageCatalogItemViewModel{}
+
+	for _, i := range catalogItems {
+		image := ""
+		if len(i.ImageUrls) > 0 {
+			image = i.ImageUrls[0]
+		}
+		price := 0
+		if len(i.Variations) > 0 {
+			price = i.Variations[0].Price
+		}
+		item := pages.ShopPageCatalogItemViewModel{
+			Id:              i.Id,
+			PrimaryImageUrl: image,
+			Price:           price,
+			Name:            i.Name,
+		}
+		model = append(model, item)
+	}
+
+	pages.Shop(model).Render(r.Context(), w)
 }
 
 func (app *application) contact(w http.ResponseWriter, r *http.Request) {

@@ -12,6 +12,7 @@ type CatalogItem struct {
 	Name        string
 	Description string
 	Variations  []CatalogItemVariation
+	ImageUrls   []string
 }
 
 type CatalogItemVariation struct {
@@ -30,9 +31,10 @@ type catalogItemResp struct {
 }
 
 type catalogItemDataResp struct {
-	Name        string                      `json:"name"`
-	Description string                      `json:"description"`
-	Variations  []catalogItemVariationsResp `json:"variations"`
+	Name          string                      `json:"name"`
+	Description   string                      `json:"description"`
+	Variations    []catalogItemVariationsResp `json:"variations"`
+	EcomImageUrls []string                    `json:"ecom_image_uris"`
 }
 
 type catalogItemVariationsResp struct {
@@ -94,6 +96,7 @@ func (sq *Square) CatalogList() ([]CatalogItem, error) {
 			Name:        ob.ItemData.Name,
 			Description: ob.ItemData.Description,
 			Variations:  []CatalogItemVariation{},
+			ImageUrls:   ob.ItemData.EcomImageUrls,
 		}
 
 		for _, v := range ob.ItemData.Variations {
