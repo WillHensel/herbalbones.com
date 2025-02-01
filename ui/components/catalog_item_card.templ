@@ -1,0 +1,70 @@
+package components
+
+import "fmt"
+
+type CatalogItemCardViewModel struct {
+	Id              string
+	PrimaryImageUrl string
+	Price           int
+	Name            string
+}
+
+templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
+	<style>
+		.product-card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.product-card-name {
+			font-size: 2em;
+			margin-block: 0.25rem;
+			text-align: center;
+		}
+
+		.product-card-price {
+			text-align: center;
+			margin-block: 0
+		}
+
+		.product-card-image {
+			width: 100%;
+			height: 25rem;
+			aspect-ratio: square;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		.buy-button {
+			text-align: center;
+			text-decoration: none;
+			color: black;
+		}
+
+		.buy-button > div{
+			width: 10rem;
+			height: 2.5rem;
+			border: 1px solid black;
+			text-align: center;
+			margin-top: 0.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.buy-button > div > p {
+
+		}
+	</style>
+	<div class="product-card">
+		<img class="product-card-image" src={ model.PrimaryImageUrl } alt=""/>
+		<h3 class="product-card-name">{ model.Name }</h3>
+		<p class="product-card-price">${ fmt.Sprintf("%d", model.Price / 100) }.00</p>
+		<a class="buy-button" href="#">
+			<div>
+				<p>Buy Now</p>
+			</div>
+		</a>
+	</div>
+}

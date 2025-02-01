@@ -1,27 +1,35 @@
 package components
 
 templ Layout(content templ.Component) {
-    <!doctype html>
-    <html>
-        <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width" />
-            
-            <title>Herbal Bones</title>
-
-            <link rel="stylesheet" href="/static/site.css" />
-        </head> 
-        <body>
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="/">Home</a></li> 
-                        <li><a href="/shop">Shop</a></li> 
-                        <li><a href="/contact">Contact</a></li> 
-                    </ul> 
-                </nav>
-            </header>
-            @content
-        </body>
-    </html>
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width"/>
+			<title>Herbal Bones</title>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Jersey+10&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="/static/site.css"/>
+		</head>
+		<body>
+			<style>
+                footer {
+                    height: 30rem;
+                    background-color: #38383b;
+                }
+            </style>
+			<header>
+				<nav>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="/shop">Shop</a></li>
+						<li><a href="/contact">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+			@content
+			<footer></footer>
+		</body>
+	</html>
 }

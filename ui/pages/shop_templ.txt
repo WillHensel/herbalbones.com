@@ -1,6 +1,2 @@
-<h1>Herbal Bones - Shop</h1><main id=\"shop-main\">
-<div class=\"product-card\"><img class=\"product-card-image\" src=\"
-\" alt=\"\"><p class=\"product-card-name\">
-</p><p class=\"product-card-price\">
-</p></div>
-</main>
+<style>\r\n\t\t.product-section {\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t}\r\n\t</style><main id=\"shop-main\"><section class=\"preamble-section\"><h2>handcrafted jewelry</h2><h3>bringing fantasy to life</h3></section><section class=\"product-section\">
+</section></main>

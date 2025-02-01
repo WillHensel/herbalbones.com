@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"web.herbalbones.com/ui/components"
 	"web.herbalbones.com/ui/pages"
 )
 
@@ -19,7 +20,7 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	model := []pages.ShopPageCatalogItemViewModel{}
+	model := []components.CatalogItemCardViewModel{}
 
 	for _, i := range catalogItems {
 		image := ""
@@ -30,7 +31,7 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 		if len(i.Variations) > 0 {
 			price = i.Variations[0].Price
 		}
-		item := pages.ShopPageCatalogItemViewModel{
+		item := components.CatalogItemCardViewModel{
 			Id:              i.Id,
 			PrimaryImageUrl: image,
 			Price:           price,

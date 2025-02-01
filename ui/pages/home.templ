@@ -3,9 +3,153 @@ package pages
 import "web.herbalbones.com/ui/components"
 
 templ Home() {
-    @components.Layout(homeContent())
+	@components.Layout(homeContent())
 }
 
 templ homeContent() {
-    <h1>Herbal Bones - Home</h1>
+	<style>
+        body {
+            margin: 0;
+        }
+
+        #preamble-section {
+            height: 30rem;
+            background-image: url("/static/images/preamble-background.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+            #preamble-section > div {
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #preamble-section h2 {
+                text-align: center;
+                color: white;
+                font-size: 5em;
+            }
+
+        #shop-section {
+            background-color: #a8a6a1;
+        }
+
+            #shop-section h3 {
+                text-align: center;
+                margin-block: 0;
+                padding-block: 3rem;
+                font-size: 2.25em;
+                color: white;
+            }
+            #artwork-row {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+                margin-inline: 2rem;
+            }
+
+        .artwork-card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+            .artwork-card img {
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 0.7;
+                object-fit: cover;
+            }
+
+            .artwork-card p {
+                color: white;
+                font-size: 1.75em;
+            }
+
+        #action-row {
+            display: flex;
+            justify-content: center;
+            padding-block: 2rem;
+        }
+
+        #action-row > a {
+            padding: 1rem;
+            padding-inline: 1.5rem;
+            background-color: white;
+            color: #a5a6a7;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        #about-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            background-color: #dfe0e1;
+            padding-block: 3rem;
+        }
+        #about-section img {
+            width: 100%;
+            aspect-ratio: 0.9;
+            object-fit: cover;
+        }
+        #about-section p {
+            font-size: 1.75em;
+            text-align: center;
+            margin-inline: 1.25rem;
+        }
+
+        #contact-section {
+            height: 45rem;
+            background-image: url("/static/images/contact-background.jpg");
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+	<main>
+		<section id="preamble-section">
+			<div>
+				<h2>bring fantasy to the real world</h2>
+			</div>
+		</section>
+		<section id="shop-section">
+			<h3>fantasy artwork</h3>
+			<div id="artwork-row">
+				<div class="artwork-card">
+					<img src="/static/images/artwork-everyday.jpg" alt="red necklace and earrings"/>
+					<p class="serif">everyday wear</p>
+				</div>
+				<div class="artwork-card">
+					<img src="/static/images/artwork-statements.png" alt="red necklace"/>
+					<p class="serif">bigger statements</p>
+				</div>
+				<div class="artwork-card">
+					<img src="/static/images/artwork-fantasy.jpeg" alt="red necklace with pearls"/>
+					<p class="serif">fantasy</p>
+				</div>
+			</div>
+			<div id="action-row">
+				<a href="/shop">SHOP</a>
+			</div>
+		</section>
+		<section id="about-section">
+			<p>
+				Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul.
+				Each piece is carefully made to blend fantasy with reality, offering a meaningful gift
+				for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry
+				reflects my passion and dedication to perfecting my skills and appreciating the beauty
+				of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing
+				an otherworldly charm to your characters and stories.
+			</p>
+			<img src="/static/images/about.jpeg" alt="girl posing wearing red necklace"/>
+		</section>
+		<section id="contact-section"></section>
+	</main>
 }

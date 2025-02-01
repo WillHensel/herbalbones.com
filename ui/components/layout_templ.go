@@ -29,7 +29,7 @@ func Layout(content templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>Herbal Bones</title><link rel=\"stylesheet\" href=\"/static/site.css\"></head><body><header><nav><ul><li><a href=\"/\">Home</a></li><li><a href=\"/shop\">Shop</a></li><li><a href=\"/contact\">Contact</a></li></ul></nav></header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>Herbal Bones</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Birthstone&amp;family=Jersey+10&amp;display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/site.css\"></head><body><style>\r\n                footer {\r\n                    height: 30rem;\r\n                    background-color: #38383b;\r\n                }\r\n            </style><header><nav><ul><li><a href=\"/\">Home</a></li><li><a href=\"/shop\">Shop</a></li><li><a href=\"/contact\">Contact</a></li></ul></nav></header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -37,7 +37,7 @@ func Layout(content templ.Component) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<footer></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

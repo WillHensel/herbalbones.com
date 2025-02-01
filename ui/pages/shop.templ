@@ -1,30 +1,29 @@
 package pages
 
-import (
-	"fmt"
-	"web.herbalbones.com/ui/components"
-)
+import "web.herbalbones.com/ui/components"
 
-type ShopPageCatalogItemViewModel struct {
-	Id              string
-	PrimaryImageUrl string
-	Price           int
-	Name            string
-}
-
-templ Shop(model []ShopPageCatalogItemViewModel) {
+templ Shop(model []components.CatalogItemCardViewModel) {
 	@components.Layout(shopContent(model))
 }
 
-templ shopContent(model []ShopPageCatalogItemViewModel) {
-	<h1>Herbal Bones - Shop</h1>
-	<main id="shop-main">
-		for _, item := range model {
-			<div class="product-card">
-				<img class="product-card-image" src={ item.PrimaryImageUrl } alt=""/>
-				<p class="product-card-name">{ item.Name }</p>
-				<p class="product-card-price">{ fmt.Sprintf("%d", item.Price) }</p>
-			</div>
+templ shopContent(model []components.CatalogItemCardViewModel) {
+	<style>
+		.product-section {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+			gap: 2rem;
+			margin-inline: 2rem;
 		}
+	</style>
+	<main id="shop-main">
+		<section class="preamble-section">
+			<h2>handcrafted jewelry</h2>
+			<h3>bringing fantasy to life</h3>
+		</section>
+		<section class="product-section">
+			for _, item := range model {
+				@components.CatalogItemCardComponent(item)
+			}
+		</section>
 	</main>
 }
