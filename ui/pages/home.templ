@@ -21,42 +21,11 @@ templ homeContent() {
         }
     </style>
 	<main>
-		@heroSection()
+		@components.HeroSection("bring fantasy to the real world", "")
 		@shopSection()
 		@aboutSection()
 		<section id="contact-section"></section>
 	</main>
-}
-
-templ heroSection() {
-	<style>
-        #hero-section {
-            aspect-ratio: 1.9;
-            background-image: url("/static/images/hero-background.jpg");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-            #hero-section > div {
-                height: 100%;
-                width: 100%;
-                background-color: rgba(0, 0, 0, 0.3);
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-            #hero-section h2 {
-                text-align: center;
-                color: white;
-                font-size: 5em;
-            }
-    </style>
-	<section id="hero-section">
-		<div>
-			<h2>bring fantasy to the real world</h2>
-		</div>
-	</section>
 }
 
 templ shopSection() {

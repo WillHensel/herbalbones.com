@@ -60,7 +60,15 @@ func shopContent(model []components.CatalogItemCardViewModel) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\tbody {\r\n\t\t\tbackground-color: #a8a6a1; \r\n\t\t}\r\n\t\t.product-section {\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t\tmax-width: 1024px;\r\n\t\t}\r\n\r\n\t\t@media only screen and (min-width: 1024px) {\r\n\t\t\t.product-section {\r\n\t\t\t\tmargin-inline: auto;\r\n\t\t\t}\r\n\t\t}\r\n\t</style><main id=\"shop-main\"><section class=\"preamble-section\"><h2>handcrafted jewelry</h2><h3>bringing fantasy to life</h3></section><section class=\"product-section\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\tbody {\r\n\t\t\tmargin: 0;\r\n\t\t\tbackground-color: #a8a6a1; \r\n\t\t}\r\n\t\t#hero-section {\r\n\t\t\tmargin-bottom: 6rem;\r\n\t\t}\r\n\r\n\t\t.product-section {\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t\tmax-width: 1024px;\r\n\t\t}\r\n\r\n\t\t.product-section-content {\r\n\t\t\tmargin-block: 3rem;\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t}\r\n\r\n\t\t@media only screen and (min-width: 1024px) {\r\n\t\t\t.product-section {\r\n\t\t\t\tmargin-inline: auto;\r\n\t\t\t}\r\n\t\t}\r\n\t</style><main id=\"shop-main\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = components.HeroSection("handcrafted jewelry", "bringing fantasy to life").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<section class=\"product-section\"><hr><div class=\"product-section-content\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -70,7 +78,7 @@ func shopContent(model []components.CatalogItemCardViewModel) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</section></main>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div></section></main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

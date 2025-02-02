@@ -9,14 +9,23 @@ templ Shop(model []components.CatalogItemCardViewModel) {
 templ shopContent(model []components.CatalogItemCardViewModel) {
 	<style>
 		body {
+			margin: 0;
 			background-color: #a8a6a1; 
 		}
+		#hero-section {
+			margin-bottom: 6rem;
+		}
+
 		.product-section {
+			margin-inline: 2rem;
+			max-width: 1024px;
+		}
+
+		.product-section-content {
+			margin-block: 3rem;
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
 			gap: 2rem;
-			margin-inline: 2rem;
-			max-width: 1024px;
 		}
 
 		@media only screen and (min-width: 1024px) {
@@ -26,14 +35,14 @@ templ shopContent(model []components.CatalogItemCardViewModel) {
 		}
 	</style>
 	<main id="shop-main">
-		<section class="preamble-section">
-			<h2>handcrafted jewelry</h2>
-			<h3>bringing fantasy to life</h3>
-		</section>
+		@components.HeroSection("handcrafted jewelry", "bringing fantasy to life")
 		<section class="product-section">
-			for _, item := range model {
-				@components.CatalogItemCardComponent(item)
-			}
+			<hr/>
+			<div class="product-section-content">
+				for _, item := range model {
+					@components.CatalogItemCardComponent(item)
+				}
+			</div>
 		</section>
 	</main>
 }

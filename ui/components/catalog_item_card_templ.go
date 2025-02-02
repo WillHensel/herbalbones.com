@@ -38,14 +38,14 @@ func CatalogItemCardComponent(model CatalogItemCardViewModel) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\t.product-card {\r\n\t\t\tdisplay: flex;\r\n\t\t\tflex-direction: column;\r\n\t\t\talign-items: center;\r\n\t\t}\r\n\r\n\t\t.product-card-name {\r\n\t\t\tfont-size: 2em;\r\n\t\t\tmargin-block: 0.25rem;\r\n\t\t\ttext-align: center;\r\n\t\t}\r\n\r\n\t\t.product-card-price {\r\n\t\t\ttext-align: center;\r\n\t\t\tmargin-block: 0\r\n\t\t}\r\n\r\n\t\t.product-card-image {\r\n\t\t\twidth: 100%;\r\n\t\t\theight: 25rem;\r\n\t\t\taspect-ratio: square;\r\n\t\t\tobject-fit: cover;\r\n\t\t\tobject-position: center;\r\n\t\t}\r\n\r\n\t\t.buy-button {\r\n\t\t\ttext-align: center;\r\n\t\t\ttext-decoration: none;\r\n\t\t\tcolor: black;\r\n\t\t}\r\n\r\n\t\t.buy-button > div{\r\n\t\t\twidth: 10rem;\r\n\t\t\theight: 2.5rem;\r\n\t\t\tborder: 1px solid black;\r\n\t\t\ttext-align: center;\r\n\t\t\tmargin-top: 0.5rem;\r\n\t\t\tdisplay: flex;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: center;\r\n\t\t}\r\n\r\n\t\t.buy-button > div > p {\r\n\r\n\t\t}\r\n\t</style><div class=\"product-card\"><img class=\"product-card-image\" src=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\t.product-card {\r\n\t\t\tdisplay: flex;\r\n\t\t\tflex-direction: column;\r\n\t\t\talign-items: center;\r\n\t\t}\r\n\r\n\t\t.product-card * {\r\n\t\t\tcolor: white;\r\n\t\t}\r\n\r\n\t\t.product-card-name {\r\n\t\t\tfont-size: 2em;\r\n\t\t\tmargin-block: 0.25rem;\r\n\t\t\ttext-align: center;\r\n\t\t}\r\n\r\n\t\t.product-card-price {\r\n\t\t\ttext-align: center;\r\n\t\t\tmargin-block: 0\r\n\t\t}\r\n\r\n\t\t.product-card-image {\r\n\t\t\twidth: 100%;\r\n\t\t\theight: 25rem;\r\n\t\t\taspect-ratio: square;\r\n\t\t\tobject-fit: cover;\r\n\t\t\tobject-position: center;\r\n\t\t}\r\n\r\n\t\t.buy-button {\r\n\t\t\ttext-align: center;\r\n\t\t\ttext-decoration: none;\r\n\t\t}\r\n\r\n\t\t.buy-button * {\r\n\t\t\tcolor: #6b6a65;\r\n\t\t}\r\n\r\n\t\t.buy-button > div{\r\n\t\t\twidth: 10rem;\r\n\t\t\theight: 2.5rem;\r\n\t\t\tbackground-color: white;\r\n\t\t\tborder-radius: 3px;\r\n\t\t\ttext-align: center;\r\n\t\t\tmargin-top: 0.5rem;\r\n\t\t\tdisplay: flex;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: center;\r\n\t\t}\r\n\r\n\t\t.buy-button > div > p {\r\n\r\n\t\t}\r\n\t</style><div class=\"product-card\"><img class=\"product-card-image\" src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(model.PrimaryImageUrl)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 61, Col: 61}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 69, Col: 61}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -58,7 +58,7 @@ func CatalogItemCardComponent(model CatalogItemCardViewModel) templ.Component {
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(model.Name)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 62, Col: 44}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 70, Col: 44}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -71,7 +71,7 @@ func CatalogItemCardComponent(model CatalogItemCardViewModel) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", model.Price/100))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 63, Col: 71}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/catalog_item_card.templ`, Line: 71, Col: 71}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
