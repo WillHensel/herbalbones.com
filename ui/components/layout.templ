@@ -14,6 +14,63 @@ templ Layout(content templ.Component) {
 		</head>
 		<body>
 			<style>
+				header {
+					position: relative;
+				}
+
+				nav {
+					position: absolute;
+					top: 0;
+					width: 100%;
+					height: 8rem;
+					background: rgb(0,0,0);
+					background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.95) 100%);
+				}
+
+				#nav-content-container {
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+					height: 6rem;
+				}
+
+				nav h1 {
+					color: white;
+					width: 33%;
+					padding-left: 3rem;
+					font-size: 40px;
+				}
+
+				nav ul {
+					list-style: none;
+					display: flex;
+					flex-direction: row;
+					justify-content: center;
+					gap: 1.5rem;
+					width: min-content;
+					margin-inline: auto;
+				}
+				nav a {
+					color: white;
+					text-decoration: none;
+				}
+
+				#social-bar {
+					width: 33%;
+					display: flex;
+					justify-content: end;
+					gap: 1rem;
+					padding-right: 3rem;
+				}
+
+				#social-bar img {
+					width: 2rem;
+					height: 2rem;
+				}
+				
+
+
                 footer {
                     height: 30rem;
                     background-color: #38383b;
@@ -21,11 +78,19 @@ templ Layout(content templ.Component) {
             </style>
 			<header>
 				<nav>
-					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/shop">Shop</a></li>
-						<li><a href="/contact">Contact</a></li>
-					</ul>
+					<div id="nav-content-container">
+						<h1>Herbal Bones</h1>
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li><a href="/shop">Shop</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+						<div id="social-bar">
+							<a href="https://www.instagram.com/herbal_bones" target="_blank">
+								<img src="/static/icons/instagram.svg"/>
+							</a>
+						</div>
+					</div>
 				</nav>
 			</header>
 			@content
