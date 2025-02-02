@@ -60,7 +60,7 @@ func shopContent(model []components.CatalogItemCardViewModel) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\t.product-section {\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t}\r\n\t</style><main id=\"shop-main\"><section class=\"preamble-section\"><h2>handcrafted jewelry</h2><h3>bringing fantasy to life</h3></section><section class=\"product-section\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n\t\tbody {\r\n\t\t\tbackground-color: #a8a6a1; \r\n\t\t}\r\n\t\t.product-section {\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t\tmax-width: 1024px;\r\n\t\t}\r\n\r\n\t\t@media only screen and (min-width: 1024px) {\r\n\t\t\t.product-section {\r\n\t\t\t\tmargin-inline: auto;\r\n\t\t\t}\r\n\t\t}\r\n\t</style><main id=\"shop-main\"><section class=\"preamble-section\"><h2>handcrafted jewelry</h2><h3>bringing fantasy to life</h3></section><section class=\"product-section\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

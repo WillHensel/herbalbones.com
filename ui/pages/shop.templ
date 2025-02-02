@@ -8,11 +8,21 @@ templ Shop(model []components.CatalogItemCardViewModel) {
 
 templ shopContent(model []components.CatalogItemCardViewModel) {
 	<style>
+		body {
+			background-color: #a8a6a1; 
+		}
 		.product-section {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
 			gap: 2rem;
 			margin-inline: 2rem;
+			max-width: 1024px;
+		}
+
+		@media only screen and (min-width: 1024px) {
+			.product-section {
+				margin-inline: auto;
+			}
 		}
 	</style>
 	<main id="shop-main">
