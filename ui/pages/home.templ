@@ -31,7 +31,7 @@ templ homeContent() {
 templ heroSection() {
 	<style>
         #hero-section {
-            height: 30rem;
+            aspect-ratio: 1.9;
             background-image: url("/static/images/hero-background.jpg");
             background-position: center;
             background-repeat: no-repeat;
@@ -74,10 +74,25 @@ templ shopSection() {
             }
             #artwork-row {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: 1fr;
                 gap: 2rem;
                 margin-inline: 2rem;
                 max-width: 1024px;
+            }
+
+            #artwork-row .artwork-card {
+                max-width: 300px;
+                margin-inline: auto;
+            }
+
+            @media only screen and (min-width: 600px) {
+                #artwork-row {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                #artwork-row .artwork-card {
+                    max-width: 100%;
+                    margin-inline: 0;
+                }
             }
 
             @media only screen and (min-width: 1024px) {
@@ -120,33 +135,53 @@ templ shopSection() {
 templ aboutSection() {
 	<style>
         #about-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            align-items: center;
             background-color: #dfe0e1;
             padding-block: 3rem;
         }
         #about-section img {
-            width: 100%;
+            max-width: 500px;
             aspect-ratio: 0.9;
             object-fit: cover;
         }
         #about-section p {
-            font-size: 1.75em;
+            font-size: 1.5em;
             text-align: center;
             margin-inline: 1.25rem;
+            color: #303030;
         }
+
+        #about-section .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            #about-section .content-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 500px;
+                align-items: center;
+                margin-left: auto;
+            }
+            #about-section img {
+                width: 100%;
+            }
+        }
+
     </style>
 	<section id="about-section">
-		<p>
-			Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul.
-			Each piece is carefully made to blend fantasy with reality, offering a meaningful gift
-			for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry
-			reflects my passion and dedication to perfecting my skills and appreciating the beauty
-			of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing
-			an otherworldly charm to your characters and stories.
-		</p>
-		<img src="/static/images/about.jpeg" alt="girl posing wearing red necklace"/>
+		<div class="content-wrapper">
+			<p>
+				Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul.
+				Each piece is carefully made to blend fantasy with reality, offering a meaningful gift
+				for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry
+				reflects my passion and dedication to perfecting my skills and appreciating the beauty
+				of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing
+				an otherworldly charm to your characters and stories.
+			</p>
+			<img src="/static/images/about.jpeg" alt="girl posing wearing red necklace"/>
+		</div>
 	</section>
 }
 

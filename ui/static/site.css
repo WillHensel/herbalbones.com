@@ -11,6 +11,13 @@ h4,
     font-style: normal;
 }
 
+p {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 nav>ul {
     list-style: none;
     display: flex;
