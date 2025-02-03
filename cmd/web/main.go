@@ -24,5 +24,5 @@ func main() {
 		logger:   logger,
 	}
 
-	http.ListenAndServe("localhost:4000", application.getRoutes())
+	http.ListenAndServe("0.0.0.0:4000", application.getRoutes())
 }
