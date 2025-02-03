@@ -16,7 +16,7 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 
 	catalogItems, err := app.services.squareService.CatalogList()
 	if err != nil {
-		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		app.serverError(w, r, err)
 		return
 	}
 

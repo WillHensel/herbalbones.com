@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log/slog"
 	"net/http"
 	"os"
 
@@ -8,6 +9,8 @@ import (
 )
 
 func main() {
+
+	logger := slog.New(slog.NewTextHandler(os.Stdout, nil))
 
 	squareToken := os.Getenv("SQUARE_ACCESS_TOKEN")
 	square := square.NewSquare(squareToken)
@@ -18,6 +21,7 @@ func main() {
 
 	application := application{
 		services: serviceProvider,
+		logger:   logger,
 	}
 
 	http.ListenAndServe("localhost:4000", application.getRoutes())
