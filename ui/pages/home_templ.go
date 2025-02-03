@@ -60,7 +60,7 @@ func homeContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n\r\n        #contact-section {\r\n            height: 45rem;\r\n            background-image: url(\"/static/images/contact-background.jpg\");\r\n            background-position: bottom;\r\n            background-repeat: no-repeat;\r\n            background-size: cover;\r\n        }\r\n    </style><main>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n\r\n        #contact-section {\r\n            height: 45rem;\r\n            background-image: url(\"/static/images/home-contact-background.jpg\");\r\n            background-position: bottom;\r\n            background-repeat: no-repeat;\r\n            background-size: cover;\r\n        }\r\n    </style><main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -150,7 +150,7 @@ func aboutSection() templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\r\n        #about-section {\r\n            background-color: #dfe0e1;\r\n            padding-block: 3rem;\r\n        }\r\n        #about-section img {\r\n            max-width: 500px;\r\n            aspect-ratio: 0.9;\r\n            object-fit: cover;\r\n        }\r\n        #about-section p {\r\n            font-size: 1.5em;\r\n            text-align: center;\r\n            margin-inline: 1.25rem;\r\n            color: #303030;\r\n        }\r\n\r\n        #about-section .content-wrapper {\r\n            display: flex;\r\n            flex-direction: column;\r\n            align-items: center;\r\n            margin-left: auto;\r\n        }\r\n\r\n        @media only screen and (min-width: 1024px) {\r\n            #about-section .content-wrapper {\r\n                display: grid;\r\n                grid-template-columns: 1fr 500px;\r\n                align-items: center;\r\n                margin-left: auto;\r\n            }\r\n            #about-section img {\r\n                width: 100%;\r\n            }\r\n        }\r\n\r\n    </style><section id=\"about-section\"><div class=\"content-wrapper\"><p>Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul. Each piece is carefully made to blend fantasy with reality, offering a meaningful gift for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry reflects my passion and dedication to perfecting my skills and appreciating the beauty of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing an otherworldly charm to your characters and stories.</p><img src=\"/static/images/about.jpeg\" alt=\"girl posing wearing red necklace\"></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\r\n        #about-section {\r\n            background-color: #dfe0e1;\r\n            padding-block: 3rem;\r\n        }\r\n        #about-section img {\r\n            max-width: 500px;\r\n            aspect-ratio: 0.9;\r\n            object-fit: cover;\r\n        }\r\n        #about-section p {\r\n            font-size: 1.5em;\r\n            text-align: center;\r\n            margin-inline: 1.25rem;\r\n            color: #303030;\r\n            max-width: 50rem;\r\n        }\r\n\r\n        #about-section .content-wrapper {\r\n            display: flex;\r\n            flex-direction: column;\r\n            align-items: center;\r\n            margin-left: auto;\r\n        }\r\n\r\n        @media only screen and (min-width: 1024px) {\r\n            #about-section .content-wrapper {\r\n                display: grid;\r\n                grid-template-columns: 1fr 500px;\r\n                align-items: center;\r\n                margin-left: auto;\r\n            }\r\n            #about-section img {\r\n                width: 100%;\r\n            }\r\n        }\r\n\r\n    </style><section id=\"about-section\"><div class=\"content-wrapper\"><p>Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul. Each piece is carefully made to blend fantasy with reality, offering a meaningful gift for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry reflects my passion and dedication to perfecting my skills and appreciating the beauty of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing an otherworldly charm to your characters and stories.</p><img src=\"/static/images/about.jpeg\" alt=\"girl posing wearing red necklace\"></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -186,7 +186,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(imgUrl)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 180, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 181, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -199,7 +199,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(imgAlt)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 180, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 181, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -212,7 +212,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 181, Col: 25}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 182, Col: 25}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {

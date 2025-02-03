@@ -3,9 +3,43 @@ package pages
 import "web.herbalbones.com/ui/components"
 
 templ Contact() {
-    @components.Layout(contactContent())
+	@components.Layout(contactContent())
 }
 
 templ contactContent() {
-    <h1>Herbal Bones - Contact</h1>
+	<style>
+        body {
+            margin: 0;
+        }
+        section {
+            height: 100vh;
+            width: 100%;
+            background-color: #060606;
+            // position: relative;
+        }
+        section img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        section .blend {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0,0,0,0);
+        }
+
+        @media only screen and (min-width: 1024px) {
+            section img {
+                width: 1024px;
+            }
+        }
+    </style>
+	<section>
+		<img src="/static/images/contact-background.jpg" alt="girl wearing blue necklace and earrings"/>
+		<div class="blend"></div>
+	</section>
 }

@@ -60,7 +60,7 @@ func contactContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<h1>Herbal Bones - Contact</h1>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n        section {\r\n            height: 100vh;\r\n            width: 100%;\r\n            background-color: #060606;\r\n            // position: relative;\r\n        }\r\n        section img {\r\n            height: 100%;\r\n            width: 100%;\r\n            object-fit: cover;\r\n        }\r\n\r\n        section .blend {\r\n            width: 100%;\r\n            height: 100%;\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0;\r\n            background-color: rgba(0,0,0,0);\r\n        }\r\n\r\n        @media only screen and (min-width: 1024px) {\r\n            section img {\r\n                width: 1024px;\r\n            }\r\n        }\r\n    </style><section><img src=\"/static/images/contact-background.jpg\" alt=\"girl wearing blue necklace and earrings\"><div class=\"blend\"></div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
