@@ -1,10 +1,7 @@
 package square
 
 import (
-	"bytes"
 	"encoding/json"
-	"io"
-	"net/http"
 	"net/url"
 
 	"github.com/google/uuid"
@@ -32,8 +29,6 @@ type paymentLinkResp struct {
 }
 
 func (sq *Square) GetSingleItemPaymentLink(itemId string) (string, error) {
-	client := &http.Client{}
-
 	idempotencyKey := uuid.New().String()
 
 	order := paymentLinkReq{
@@ -54,29 +49,12 @@ func (sq *Square) GetSingleItemPaymentLink(itemId string) (string, error) {
 		return "", err
 	}
 
-	reqBodyReader := bytes.NewReader(reqBody)
-
 	route, err := url.JoinPath(sq.apiUri, "online-checkout/payment-links")
 	if err != nil {
 		return "", err
 	}
 
-	req, err := http.NewRequest("POST", route, reqBodyReader)
-	if err != nil {
-		return "", err
-	}
-
-	req.Header.Add("Square-Version", sq.version)
-	req.Header.Add("Authorization", "Bearer "+sq.accessToken)
-	req.Header.Add("Content-Type", "application/json")
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return "", err
-	}
-	defer resp.Body.Close()
-
-	respBodyBytes, err := io.ReadAll(resp.Body)
+	respBodyBytes, err := sq.makePostRequest(route, reqBody)
 	if err != nil {
 		return "", err
 	}

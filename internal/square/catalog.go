@@ -2,8 +2,6 @@ package square
 
 import (
 	"encoding/json"
-	"io"
-	"net/http"
 	"net/url"
 )
 
@@ -35,6 +33,8 @@ type catalogItemDataResp struct {
 	Description   string                      `json:"description"`
 	Variations    []catalogItemVariationsResp `json:"variations"`
 	EcomImageUrls []string                    `json:"ecom_image_uris"`
+	IsDeleted     bool                        `json:"is_deleted"`
+	IsArchived    bool                        `json:"is_archived"`
 }
 
 type catalogItemVariationsResp struct {
@@ -54,7 +54,7 @@ type itemVariationPriceResp struct {
 }
 
 func (sq *Square) CatalogList() ([]CatalogItem, error) {
-	client := &http.Client{}
+
 	route, err := url.JoinPath(sq.apiUri, "catalog/list")
 	if err != nil {
 		return []CatalogItem{}, err
@@ -62,25 +62,7 @@ func (sq *Square) CatalogList() ([]CatalogItem, error) {
 
 	route += "?types=ITEM"
 
-	req, err := http.NewRequest("GET", route, nil)
-	if err != nil {
-		return []CatalogItem{}, err
-	}
-
-	req.Header.Add("Square-Version", sq.version)
-	req.Header.Add("Authorization", "Bearer "+sq.accessToken)
-	req.Header.Add("Content-Type", "application/json")
-
-	resp, err := client.Do(req)
-	if err != nil {
-		return []CatalogItem{}, err
-	}
-	defer resp.Body.Close()
-
-	bodyBytes, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return []CatalogItem{}, err
-	}
+	bodyBytes, err := sq.makeGetRequest(route)
 
 	cat := catalogListResp{}
 
@@ -91,6 +73,10 @@ func (sq *Square) CatalogList() ([]CatalogItem, error) {
 	items := []CatalogItem{}
 
 	for _, ob := range cat.Objects {
+		if ob.ItemData.IsDeleted || ob.ItemData.IsArchived {
+			continue
+		}
+
 		item := CatalogItem{
 			Id:          ob.Id,
 			Name:        ob.ItemData.Name,
