@@ -62,7 +62,12 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 		}
 
 		.buy-button > form > button {
-
+			background: none;
+			border: none;
+			font-size: 16px;
+		}
+		.buy-button > form > button:hover {
+			cursor: pointer;
 		}
 	</style>
 	<div class="product-card">
@@ -70,7 +75,7 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 		<h3 class="product-card-name">{ model.Name }</h3>
 		<p class="product-card-price">${ fmt.Sprintf("%d", model.Price / 100) }.00</p>
 		<a class="buy-button" href="#">
-			<form action="/shop/buy-now">
+			<form action="/shop/buy-now" method="post">
 				<input type="hidden" name="item_id" value={ model.Id }/>
 				<button type="submit">Buy Now</button>
 			</form>

@@ -23,6 +23,10 @@ type lineItemReq struct {
 }
 
 type paymentLinkResp struct {
+	PaymentLink PaymentLink `json:"payment_link"`
+}
+
+type PaymentLink struct {
 	Id      string `json:"id"`
 	OrderId string `json:"order_id"`
 	Url     string `json:"url"`
@@ -33,7 +37,7 @@ func (sq *Square) GetSingleItemPaymentLink(itemId string) (string, error) {
 
 	order := paymentLinkReq{
 		Order: orderReq{
-			LocationId:     "LKCMCTJHEAZ72",
+			LocationId:     sq.locationId,
 			IdempotencyKey: idempotencyKey,
 			LineItems: []lineItemReq{
 				{
@@ -65,5 +69,5 @@ func (sq *Square) GetSingleItemPaymentLink(itemId string) (string, error) {
 		return "", err
 	}
 
-	return respContent.Url, nil
+	return respContent.PaymentLink.Url, nil
 }

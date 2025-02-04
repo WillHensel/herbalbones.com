@@ -2,6 +2,8 @@ package square
 
 import (
 	"bytes"
+	"errors"
+	"fmt"
 	"io"
 	"net/http"
 )
@@ -10,6 +12,7 @@ type Square struct {
 	accessToken string
 	apiUri      string
 	version     string
+	locationId  string
 }
 
 func NewSquare(accessToken string) Square {
@@ -17,6 +20,7 @@ func NewSquare(accessToken string) Square {
 		accessToken: accessToken,
 		apiUri:      "https://connect.squareup.com/v2",
 		version:     "2025-01-23",
+		locationId:  "LKCMCTJHEAZ72",
 	}
 }
 
@@ -65,6 +69,10 @@ func (sq *Square) makePostRequest(route string, body []byte) ([]byte, error) {
 	bodyBytes, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return []byte{}, err
+	}
+
+	if resp.StatusCode != http.StatusOK {
+		return []byte{}, errors.New(fmt.Sprintf("request failed\n\n%s", string(bodyBytes)))
 	}
 
 	return bodyBytes, nil

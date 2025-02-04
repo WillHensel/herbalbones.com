@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"strings"
 
 	"web.herbalbones.com/ui/components"
 	"web.herbalbones.com/ui/pages"
@@ -28,11 +29,14 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 			image = i.ImageUrls[0]
 		}
 		price := 0
+		id := ""
+		// TODO support multiple variations
 		if len(i.Variations) > 0 {
 			price = i.Variations[0].Price
+			id = i.Variations[0].Id
 		}
 		item := components.CatalogItemCardViewModel{
-			Id:              i.Id,
+			Id:              id,
 			PrimaryImageUrl: image,
 			Price:           price,
 			Name:            i.Name,
@@ -46,14 +50,23 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 func (app *application) buyNowPost(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
 		return
 	}
 
 	itemId := r.PostForm.Get("item_id")
-	uri, err := app.services.squareService.GetSingleItemPaymentLink(itemId)
-	if err != nil {
+	if len(strings.TrimSpace(itemId)) == 0 {
+		app.clientError(w, http.StatusBadRequest)
 		return
 	}
+
+	uri, err := app.services.squareService.GetSingleItemPaymentLink(itemId)
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
+
+	app.logger.Info("Buy Now", "item_id", itemId, "uri", uri)
 
 	http.Redirect(w, r, uri, http.StatusSeeOther)
 }
