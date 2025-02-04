@@ -9,6 +9,7 @@ func (app *application) getRoutes() http.Handler {
 
 	mux.Handle("/", http.HandlerFunc(app.home))
 	mux.Handle("/shop", http.HandlerFunc(app.shop))
+	mux.Handle("/shop/buy-now", http.HandlerFunc(app.buyNowPost))
 	mux.Handle("/contact", http.HandlerFunc(app.contact))
 
 	return app.logRequest(mux)

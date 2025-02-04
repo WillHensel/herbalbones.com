@@ -49,7 +49,7 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 			color: #6b6a65;
 		}
 
-		.buy-button > div{
+		.buy-button > form{
 			width: 10rem;
 			height: 2.5rem;
 			background-color: white;
@@ -61,7 +61,7 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 			justify-content: center;
 		}
 
-		.buy-button > div > p {
+		.buy-button > form > button {
 
 		}
 	</style>
@@ -70,9 +70,10 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 		<h3 class="product-card-name">{ model.Name }</h3>
 		<p class="product-card-price">${ fmt.Sprintf("%d", model.Price / 100) }.00</p>
 		<a class="buy-button" href="#">
-			<div>
-				<p>Buy Now</p>
-			</div>
+			<form action="/shop/buy-now">
+				<input type="hidden" name="item_id" value={ model.Id }/>
+				<button type="submit">Buy Now</button>
+			</form>
 		</a>
 	</div>
 }

@@ -43,6 +43,21 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 	pages.Shop(model).Render(r.Context(), w)
 }
 
+func (app *application) buyNowPost(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		return
+	}
+
+	itemId := r.PostForm.Get("item_id")
+	uri, err := app.services.squareService.GetSingleItemPaymentLink(itemId)
+	if err != nil {
+		return
+	}
+
+	http.Redirect(w, r, uri, http.StatusSeeOther)
+}
+
 func (app *application) contact(w http.ResponseWriter, r *http.Request) {
 
 	pages.Contact().Render(r.Context(), w)
