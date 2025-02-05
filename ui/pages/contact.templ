@@ -126,7 +126,7 @@ templ contactContent() {
 		<div class="blend">
 			<div>
 				<h2>Contact</h2>
-				<form action="/contact/send-message" method="POST" enctype="multipart/form-data">
+				<form action="/contact" method="POST">
 					@inputComponent("Name", "name", "text")
 					@inputComponent("Email", "email", "email")
 					@textAreaComponent("Message", "message", 15)

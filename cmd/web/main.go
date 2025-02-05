@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"web.herbalbones.com/internal/mailjet"
 	"web.herbalbones.com/internal/square"
 )
 
@@ -15,8 +16,13 @@ func main() {
 	squareToken := os.Getenv("SQUARE_ACCESS_TOKEN")
 	square := square.NewSquare(squareToken)
 
+	mailjetPub := os.Getenv("MAILJET_API_KEY")
+	mailjetPriv := os.Getenv("MAILJET_SECRET_KEY")
+	mailjet := mailjet.NewMailjet(mailjetPub, mailjetPriv)
+
 	serviceProvider := serviceProvider{
-		squareService: square,
+		squareService:  square,
+		mailjetService: mailjet,
 	}
 
 	application := application{

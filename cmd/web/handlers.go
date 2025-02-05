@@ -73,3 +73,26 @@ func (app *application) contact(w http.ResponseWriter, r *http.Request) {
 
 	pages.Contact().Render(r.Context(), w)
 }
+
+func (app *application) contactPost(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		app.clientError(w, http.StatusBadRequest)
+		return
+	}
+
+	name := r.PostForm.Get("name")
+	email := r.PostForm.Get("email")
+	message := r.PostForm.Get("message")
+
+	err = app.services.mailjetService.SendContactMessage(name, email, message)
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
+
+	app.logger.Info("New contact request received", "name", name, "email", email, "message", message)
+
+	http.Redirect(w, r, "/contact", http.StatusSeeOther)
+}
