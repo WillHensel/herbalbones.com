@@ -69,30 +69,6 @@ func (app *application) buyNow(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, uri, http.StatusSeeOther)
 }
 
-func (app *application) buyNowPost(w http.ResponseWriter, r *http.Request) {
-	err := r.ParseForm()
-	if err != nil {
-		app.clientError(w, http.StatusBadRequest)
-		return
-	}
-
-	itemId := r.PostForm.Get("item_id")
-	if len(strings.TrimSpace(itemId)) == 0 {
-		app.clientError(w, http.StatusBadRequest)
-		return
-	}
-
-	uri, err := app.services.squareService.GetSingleItemPaymentLink(itemId)
-	if err != nil {
-		app.serverError(w, r, err)
-		return
-	}
-
-	app.logger.Info("Buy Now", "item_id", itemId, "uri", uri)
-
-	http.Redirect(w, r, uri, http.StatusSeeOther)
-}
-
 func (app *application) contact(w http.ResponseWriter, r *http.Request) {
 
 	pages.Contact().Render(r.Context(), w)
