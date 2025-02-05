@@ -60,7 +60,172 @@ func contactContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n        section {\r\n            height: 100vh;\r\n            width: 100%;\r\n            background-color: #060606;\r\n        }\r\n        section img {\r\n            width: 100%;\r\n            aspect-ratio: 0.562;\r\n            object-fit: cover;\r\n        }\r\n        section .blend {\r\n            width: 100%;\r\n            height: 100%;\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: center;\r\n            align-items: end;\r\n        }\r\n\r\n        section .blend * {\r\n            color: white;\r\n        }\r\n\r\n        section .blend h2 {\r\n            font-size: 4em;\r\n            text-align: center;\r\n        }\r\n\r\n        section .blend p {\r\n            text-align: center;\r\n        }\r\n\r\n        section .blend > div {\r\n            width: 100%;\r\n        }\r\n\r\n        @media only screen and (min-width: 500px) {\r\n            section .blend > div {\r\n                width: 50%;\r\n            }\r\n\r\n            section {\r\n                position: relative;\r\n            }\r\n            section .blend {\r\n                // background: linear-gradient(105deg, rgba(0,0,0,0) 450px, red 800px, blue);\r\n                background: linear-gradient(95deg, rgba(0,0,0,0) 400px, rgba(6,6,6,0.99) 650px, rgba(6,6,6,1)),\r\n                            linear-gradient(155deg, rgba(0,0,0,0) 900px, rgba(6,6,6,1) 1100px, rgba(6,6,6,1));\r\n            }\r\n\r\n            @media only screen and (min-width: 624px) {\r\n                section img {\r\n                    width: 624px;\r\n                    height: auto;\r\n                }\r\n            }\r\n\r\n            @media only screen and (max-height: calc(624px / calc(9 / 16))) {\r\n                section {\r\n                    height: auto;\r\n                }\r\n            }\r\n        }\r\n\r\n        @media only screen and (max-width: 624px) {\r\n            section .blend {\r\n                // background: linear-gradient(105deg, rgba(0,0,0,0) 450px, red 800px, blue);\r\n                background: linear-gradient(95deg, rgba(0,0,0,0) 55%, rgba(6,6,6,0.99) 85%, rgba(6,6,6,1)),\r\n                            linear-gradient(155deg, rgba(0,0,0,0) 55%, rgba(6,6,6,1) 75%, rgba(6,6,6,1));\r\n            }\r\n        }\r\n\r\n    </style><section><img src=\"/static/images/contact-background.jpg\" alt=\"girl wearing blue necklace and earrings\"><div class=\"blend\"><div><h2>Contact</h2><p>Coming soon</p></div></div></section>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n        section {\r\n            height: 100vh;\r\n            width: 100%;\r\n            background-color: #060606;\r\n        }\r\n        section img {\r\n            width: 100%;\r\n            aspect-ratio: 0.562;\r\n            object-fit: cover;\r\n        }\r\n        section .blend {\r\n            width: 100%;\r\n            height: 100%;\r\n            position: absolute;\r\n            left: 0;\r\n            top: 0;\r\n            display: flex;\r\n            flex-direction: column;\r\n            justify-content: center;\r\n            align-items: end;\r\n        }\r\n\r\n        section .blend * {\r\n            color: white;\r\n        }\r\n\r\n        section .blend h2 {\r\n            font-size: 4em;\r\n            text-align: center;\r\n        }\r\n\r\n        section .blend p {\r\n            text-align: center;\r\n        }\r\n\r\n        section .blend > div {\r\n            display: flex;\r\n            flex-direction: column;\r\n            align-items: center;\r\n            width: 100%;\r\n        }\r\n\r\n        section .blend > div {\r\n            width: 50%;\r\n        }\r\n\r\n        section .blend form {\r\n            width: 85%;\r\n        }\r\n\r\n        #send-message {\r\n\t\t\twidth: 100%;\r\n\t\t\theight: 2.5rem;\r\n\t\t\tcolor: white;\r\n            background: rgba(29, 29, 29, 0.95);\r\n            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\r\n            backdrop-filter: blur(5px);\r\n            -webkit-backdrop-filter: blur(5px);\r\n            border: 1px solid rgba(29, 29, 29, 0.3);\r\n            border-radius: 3px;\r\n\t\t\ttext-align: center;\r\n\t\t\ttext-decoration: none;\r\n\t\t\tmargin-top: 0.5rem;\r\n\t\t\tdisplay: flex;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: center;\r\n        }\r\n\r\n        #send-message:hover {\r\n            cursor: pointer;\r\n        }\r\n\r\n        @media only screen and (max-width: 800px) {\r\n            section .blend > div {\r\n                width: 100%;\r\n            }\r\n        }\r\n\r\n        @media only screen and (min-width: 500px) {\r\n\r\n            // section {\r\n            //     position: relative;\r\n            // }\r\n            section .blend {\r\n                background: linear-gradient(95deg, rgba(0,0,0,0) 400px, rgba(6,6,6,0.99) 650px, rgba(6,6,6,1)),\r\n                            linear-gradient(155deg, rgba(0,0,0,0) 900px, rgba(6,6,6,1) 1100px, rgba(6,6,6,1));\r\n            }\r\n\r\n            @media only screen and (min-width: 624px) {\r\n                section img {\r\n                    width: 624px;\r\n                    height: auto;\r\n                }\r\n            }\r\n\r\n            @media only screen and (max-height: calc(624px / calc(9 / 16))) {\r\n                section {\r\n                    height: auto;\r\n                }\r\n            }\r\n        }\r\n\r\n        @media only screen and (max-width: 624px) {\r\n            section .blend {\r\n                background: linear-gradient(95deg, rgba(0,0,0,0) 55%, rgba(6,6,6,0.99) 85%, rgba(6,6,6,1)),\r\n                            linear-gradient(155deg, rgba(0,0,0,0) 55%, rgba(6,6,6,1) 75%, rgba(6,6,6,1));\r\n            }\r\n        }\r\n\r\n    </style><section><img src=\"/static/images/contact-background.jpg\" alt=\"girl wearing blue necklace and earrings\"><div class=\"blend\"><div><h2>Contact</h2><form action=\"/contact/send-message\" method=\"POST\" enctype=\"multipart/form-data\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = inputComponent("Name", "name", "text").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = inputComponent("Email", "email", "email").Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = textAreaComponent("Message", "message", 15).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<button type=\"submit\" id=\"send-message\">Send Message</button></form></div></div></section>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func inputComponent(label string, name string, inputType string) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\r\n        .input-label {\r\n            display: block;\r\n            margin-bottom: 0.25rem;\r\n            font-size: 1.2em;\r\n        }\r\n        input {\r\n            display: block;\r\n            width: 100%;\r\n            margin-bottom: 2rem;\r\n            height: 2rem;\r\n            background: rgba(29, 29, 29, 0.71);\r\n            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\r\n            backdrop-filter: blur(5px);\r\n            -webkit-backdrop-filter: blur(5px);\r\n            border: 1px solid rgba(29, 29, 29, 0.3);\r\n            border: none;\r\n            border-radius: 3px;\r\n            padding-inline: 0.5rem;\r\n            box-sizing: border-box;\r\n            font-size: 1em;\r\n        }\r\n    </style><div><label class=\"input-label\" for=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 string
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 165, Col: 39}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var5 string
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(label)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 165, Col: 49}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</label> <input type=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var6 string
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(inputType)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 166, Col: 25}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "\" name=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var7 string
+		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 166, Col: 39}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "\"></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return nil
+	})
+}
+
+func textAreaComponent(label string, name string, rows int) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
+			return templ_7745c5c3_CtxErr
+		}
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var8 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var8 == nil {
+			templ_7745c5c3_Var8 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<style>\r\n        .textarea-label {\r\n            display: block;\r\n            margin-bottom: 0.25rem;\r\n            font-size: 1.2em;\r\n        }\r\n        textarea {\r\n            display: block;\r\n            width: 100%;\r\n            margin-bottom: 2rem;\r\n            background: rgba(29, 29, 29, 0.71);\r\n            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);\r\n            backdrop-filter: blur(5px);\r\n            -webkit-backdrop-filter: blur(5px);\r\n            border: 1px solid rgba(29, 29, 29, 0.3);\r\n            border: none;\r\n            border-radius: 3px;\r\n            padding: 0.5rem;\r\n            box-sizing: border-box;\r\n            font-size: 1em;\r\n        }\r\n    </style><div><label class=\"textarea-label\" for=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 194, Col: 42}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var10 string
+		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(label)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 194, Col: 52}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "</label> <textarea rows=\"10\" name=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var11 string
+		templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(name)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/contact.templ`, Line: 195, Col: 33}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "\"></textarea></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
