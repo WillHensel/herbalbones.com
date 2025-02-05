@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/julienschmidt/httprouter"
 	"web.herbalbones.com/ui/components"
 	"web.herbalbones.com/ui/pages"
 )
@@ -45,6 +46,27 @@ func (app *application) shop(w http.ResponseWriter, r *http.Request) {
 	}
 
 	pages.Shop(model).Render(r.Context(), w)
+}
+
+func (app *application) buyNow(w http.ResponseWriter, r *http.Request) {
+
+	params := httprouter.ParamsFromContext(r.Context())
+	id := params.ByName("id")
+
+	if len(strings.TrimSpace(id)) == 0 {
+		app.notFound(w)
+		return
+	}
+
+	uri, err := app.services.squareService.GetSingleItemPaymentLink(id)
+	if err != nil {
+		app.serverError(w, r, err)
+		return
+	}
+
+	app.logger.Info("Buy Now", "item_id", id, "uri", uri)
+
+	http.Redirect(w, r, uri, http.StatusSeeOther)
 }
 
 func (app *application) buyNowPost(w http.ResponseWriter, r *http.Request) {

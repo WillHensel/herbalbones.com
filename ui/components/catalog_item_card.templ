@@ -41,44 +41,25 @@ templ CatalogItemCardComponent(model CatalogItemCardViewModel) {
 		}
 
 		.buy-button {
-			text-align: center;
-			text-decoration: none;
-		}
-
-		.buy-button * {
-			color: #6b6a65;
-		}
-
-		.buy-button > form{
 			width: 10rem;
 			height: 2.5rem;
 			background-color: white;
+			color: #6b6a65;
 			border-radius: 3px;
 			text-align: center;
+			text-decoration: none;
 			margin-top: 0.5rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-		}
-
-		.buy-button > form > button {
-			background: none;
-			border: none;
-			font-size: 16px;
-		}
-		.buy-button > form > button:hover {
-			cursor: pointer;
 		}
 	</style>
 	<div class="product-card">
 		<img class="product-card-image" src={ model.PrimaryImageUrl } alt=""/>
 		<h3 class="product-card-name">{ model.Name }</h3>
 		<p class="product-card-price">${ fmt.Sprintf("%d", model.Price / 100) }.00</p>
-		<a class="buy-button" href="#">
-			<form action="/shop/buy-now" method="post">
-				<input type="hidden" name="item_id" value={ model.Id }/>
-				<button type="submit">Buy Now</button>
-			</form>
+		<a class="buy-button" href={ templ.URL("/shop/buy-now/" + model.Id) } target="_blank">
+			Buy Now
 		</a>
 	</div>
 }
