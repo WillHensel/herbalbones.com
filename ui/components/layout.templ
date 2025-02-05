@@ -165,7 +165,7 @@ templ newNavComponent() {
 			height: 6rem;
 		}
 
-		#nav-container h1 {
+		#nav-container .unstyled-link h1 {
 			margin-top: 2rem;
 			color: white;
 			padding-left: 3rem;
@@ -200,7 +200,7 @@ templ newNavComponent() {
 			justify-content: space-between;
 		}
 
-		#pop-out-aside h1 {
+		#pop-out-aside .unstyled-link {
 			margin-top: 0;
 			padding-left: 0;
 		}
@@ -219,13 +219,18 @@ templ newNavComponent() {
 			overflow-y: hidden;
 		}
 
+		.unstyled-link {
+			text-decoration: none;
+			color: white;
+		}
+
 
 		@media only screen and (min-width: 690px) {
 			#hamburger {
 				display: none;
 			}
 
-			#nav-container h1 {
+			#nav-container .unstyled-link {
 				width: 100%;
 			}
 
@@ -264,7 +269,7 @@ templ newNavComponent() {
 			<div id="hamburger">
 				<img src="/static/icons/bars.svg"/>
 			</div>
-			<h1>Herbal Bones</h1>
+			<a href="/" class="unstyled-link"><h1>Herbal Bones</h1></a>
 			<div id="pop-out">
 				<aside id="pop-out-aside">
 					<div>
