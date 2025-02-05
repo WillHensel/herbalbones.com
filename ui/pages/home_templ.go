@@ -60,7 +60,7 @@ func homeContent() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n            overflow: hidden;\r\n        }\r\n\r\n        #contact-section {\r\n            height: 45rem;\r\n            background-image: url(\"/static/images/home-contact-background.jpg\");\r\n            background-position: bottom;\r\n            background-repeat: no-repeat;\r\n            background-size: cover;\r\n        }\r\n    </style><main>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\r\n        body {\r\n            margin: 0;\r\n        }\r\n\r\n        #contact-section {\r\n            height: 45rem;\r\n            background-image: url(\"/static/images/home-contact-background.jpg\");\r\n            background-position: bottom;\r\n            background-repeat: no-repeat;\r\n            background-size: cover;\r\n        }\r\n    </style><main>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -186,7 +186,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(imgUrl)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 183, Col: 19}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 182, Col: 19}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -199,7 +199,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(imgAlt)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 183, Col: 34}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 182, Col: 34}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -212,7 +212,7 @@ func artworkCard(imgUrl string, imgAlt string, text string) templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 184, Col: 25}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/pages/home.templ`, Line: 183, Col: 25}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
