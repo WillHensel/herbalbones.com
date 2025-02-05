@@ -73,9 +73,26 @@ templ Layout(content templ.Component) {
 
 
                 footer {
-                    height: 30rem;
+                    height: 3rem;
                     background-color: #38383b;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding-inline: 1.5rem;
                 }
+
+				footer p {
+					font-size: 14px;
+				}
+
+				footer * {
+					color: white;
+				}
+
+				#social-links img {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
             </style>
 			<header>
 				<nav>
@@ -95,7 +112,14 @@ templ Layout(content templ.Component) {
 				</nav>
 			</header>
 			@content
-			<footer></footer>
+			<footer>
+				<p>&copy; Herbal Bones 2025</p>
+				<div id="social-links">
+					<a href="https://www.instagram.com/herbal_bones" target="_blank">
+						<img src="/static/icons/instagram.svg"/>
+					</a>
+				</div>
+			</footer>
 		</body>
 	</html>
 }
