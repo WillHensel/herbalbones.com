@@ -215,8 +215,12 @@ templ newNavComponent() {
 			cursor: pointer;
 		}
 
+		.disable-scroll {
+			overflow-y: hidden;
+		}
 
-		@media only screen and (min-width: 650px) {
+
+		@media only screen and (min-width: 690px) {
 			#hamburger {
 				display: none;
 			}
@@ -284,11 +288,15 @@ templ newNavComponent() {
 		function onHamburgerClick() {
 			var popOut = document.getElementById("pop-out");
 			popOut.style.display = "block";
+
+			document.querySelector("body").classList.add("disable-scroll");
 		}
 
 		function onPopoutClick() {
 			var popOut = document.getElementById("pop-out");
 			popOut.style.display = "none";
+
+			document.querySelector("body").classList.remove("disable-scroll");
 		}
 
 		function onPopoutAsideClick(e) {
