@@ -1,5 +1,10 @@
 package components
 
+import (
+	"fmt"
+	"web.herbalbones.com/ui"
+)
+
 templ Layout(content templ.Component) {
 	<!DOCTYPE html>
 	<html>
@@ -113,7 +118,7 @@ templ Layout(content templ.Component) {
 			</header>
 			@content
 			<footer>
-				<p>&copy; Herbal Bones 2025</p>
+				<p>&copy; Herbal Bones { fmt.Sprintf("%d", ui.GetYear()) }</p>
 				<div id="social-links">
 					<a href="https://www.instagram.com/herbal_bones" target="_blank">
 						<img src="/static/icons/instagram.svg"/>
