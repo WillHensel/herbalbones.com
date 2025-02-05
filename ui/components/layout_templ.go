@@ -34,7 +34,7 @@ func Layout(content templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>Herbal Bones</title><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Birthstone&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/site.css\"></head><body><style>\r\n\t\t\t\tbody {\r\n\t\t\t\t\twidth: 100%;\r\n\t\t\t\t\theight: 100%;\r\n\t\t\t\t}\r\n\r\n\t\t\t\theader {\r\n\t\t\t\t\tposition: relative;\r\n\t\t\t\t}\r\n\r\n\r\n\r\n                footer {\r\n                    height: 3rem;\r\n                    background-color: #38383b;\r\n\t\t\t\t\tdisplay: flex;\r\n\t\t\t\t\tjustify-content: space-between;\r\n\t\t\t\t\talign-items: center;\r\n\t\t\t\t\tpadding-inline: 1.5rem;\r\n                }\r\n\r\n\t\t\t\tfooter p {\r\n\t\t\t\t\tfont-size: 14px;\r\n\t\t\t\t}\r\n\r\n\t\t\t\tfooter * {\r\n\t\t\t\t\tcolor: white;\r\n\t\t\t\t}\r\n\r\n\t\t\t\t#social-links img {\r\n\t\t\t\t\twidth: 1.5rem;\r\n\t\t\t\t\theight: 1.5rem;\r\n\t\t\t\t}\r\n            </style><header>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<!doctype html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width\"><title>Herbal Bones</title><link rel=\"icon\" href=\"/static/images/favicon.jpg\"><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Birthstone&amp;family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;display=swap\" rel=\"stylesheet\"><link rel=\"stylesheet\" href=\"/static/site.css\"></head><body><style>\r\n\t\t\t\tbody {\r\n\t\t\t\t\twidth: 100%;\r\n\t\t\t\t\theight: 100%;\r\n\t\t\t\t}\r\n\r\n\t\t\t\theader {\r\n\t\t\t\t\tposition: relative;\r\n\t\t\t\t}\r\n\r\n\r\n\r\n                footer {\r\n                    height: 3rem;\r\n                    background-color: #38383b;\r\n\t\t\t\t\tdisplay: flex;\r\n\t\t\t\t\tjustify-content: space-between;\r\n\t\t\t\t\talign-items: center;\r\n\t\t\t\t\tpadding-inline: 1.5rem;\r\n                }\r\n\r\n\t\t\t\tfooter p {\r\n\t\t\t\t\tfont-size: 14px;\r\n\t\t\t\t}\r\n\r\n\t\t\t\tfooter * {\r\n\t\t\t\t\tcolor: white;\r\n\t\t\t\t}\r\n\r\n\t\t\t\t#social-links img {\r\n\t\t\t\t\twidth: 1.5rem;\r\n\t\t\t\t\theight: 1.5rem;\r\n\t\t\t\t}\r\n            </style><header>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -57,7 +57,7 @@ func Layout(content templ.Component) templ.Component {
 		var templ_7745c5c3_Var2 string
 		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d", ui.GetYear()))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/layout.templ`, Line: 60, Col: 60}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `ui/components/layout.templ`, Line: 61, Col: 60}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
