@@ -1,0 +1,325 @@
+package components
+
+import (
+	"fmt"
+	"web.herbalbones.com/ui"
+)
+
+templ Layout(content templ.Component) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width"/>
+			<title>Herbal Bones</title>
+			<link rel="icon" href="/static/images/favicon.jpg"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+			<link rel="stylesheet" href="/static/site.css"/>
+			<!-- 100% privacy-first analytics -->
+			<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+		</head>
+		<body>
+			<style>
+				body {
+					width: 100%;
+					height: 100%;
+				}
+
+				header {
+					position: relative;
+				}
+
+
+
+                footer {
+                    height: 3rem;
+                    background-color: #38383b;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					padding-inline: 1.5rem;
+                }
+
+				footer p {
+					font-size: 14px;
+				}
+
+				footer * {
+					color: white;
+				}
+
+				#social-links img {
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+            </style>
+			<header>
+				@newNavComponent()
+			</header>
+			@content
+			<footer>
+				<p>&copy; Herbal Bones { fmt.Sprintf("%d", ui.GetYear()) }</p>
+				<div id="social-links">
+					<a href="https://www.instagram.com/herbal_bones" target="_blank">
+						<img src="/static/icons/instagram.svg"/>
+					</a>
+				</div>
+			</footer>
+		</body>
+	</html>
+}
+
+templ navComponent() {
+	<style>
+		nav {
+			position: absolute;
+			top: 0;
+			z-index: 1000;
+			width: 100%;
+			height: 8rem;
+			background: rgb(0,0,0);
+			background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.95) 100%);
+		}
+
+		#nav-content-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height: 6rem;
+		}
+
+		nav h1 {
+			color: white;
+			width: 33%;
+			padding-left: 3rem;
+			font-size: 40px;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			gap: 1.5rem;
+			width: min-content;
+			margin-inline: auto;
+		}
+		nav a {
+			color: white;
+			text-decoration: none;
+		}
+
+		#social-bar {
+			width: 33%;
+			display: flex;
+			justify-content: end;
+			gap: 1rem;
+			padding-right: 3rem;
+		}
+
+		#social-bar img {
+			width: 2rem;
+			height: 2rem;
+		}
+
+		@media only screen and (max-width: 650px) {
+			nav {
+				display: none;
+			}
+		}
+				
+	</style>
+	<nav>
+		<div id="nav-content-container">
+			<h1>Herbal Bones</h1>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/shop">Shop</a></li>
+				<li><a href="/contact">Contact</a></li>
+			</ul>
+			<div id="social-bar">
+				<a href="https://www.instagram.com/herbal_bones" target="_blank">
+					<img src="/static/icons/instagram.svg"/>
+				</a>
+			</div>
+		</div>
+	</nav>
+}
+
+templ newNavComponent() {
+	<style>
+		#outer-nav {
+			position: absolute;
+			top: 0;
+			z-index: 1000;
+			width: 100%;
+			height: 8rem;
+			background: rgb(0,0,0);
+			background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.95) 100%);
+		}
+
+		#nav-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			height: 6rem;
+		}
+
+		#nav-container .unstyled-link h1 {
+			margin-top: 2rem;
+			color: white;
+			padding-left: 3rem;
+			font-size: 40px;
+		}
+
+		nav a {
+			color: white;
+			text-decoration: none;
+			display: block;
+			margin-block: 1rem;
+		}
+
+		#pop-out {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			width: 100%;
+			background-color: rgba(0,0,0,0.5);
+			display: none;
+		}
+
+		#pop-out-aside {
+			box-sizing: border-box;
+			height: 100%;
+			width: 20rem;
+			background-color: #38383b; 
+			padding: 3rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		#pop-out-aside .unstyled-link {
+			margin-top: 0;
+			padding-left: 0;
+		}
+
+		#pop-out-aside h1 {
+			color: white;
+			font-size: 2.25em;
+		}
+
+		#hamburger {
+			width: 2rem;
+			height: 2rem;	
+			margin-left: 3rem;
+		}
+
+		#hamburger:hover {
+			cursor: pointer;
+		}
+
+		.disable-scroll {
+			overflow-y: hidden;
+		}
+
+		.unstyled-link {
+			text-decoration: none;
+			color: white;
+		}
+
+
+		@media only screen and (min-width: 690px) {
+			#hamburger {
+				display: none;
+			}
+
+			#nav-container .unstyled-link {
+				width: 100%;
+			}
+
+			#pop-out {
+				position: relative;
+				display: block !important;
+				height: 100%;
+				background: none;
+			}
+
+			#pop-out-aside nav {
+				width: 250px
+			}
+
+			#pop-out-aside {
+				display: flex;
+				flex-direction: row;
+				height: 100%;
+				padding-left: 0;
+				width: calc(100vw / 2 + 125px);
+				background: none;
+			}
+
+			#pop-out-aside h1 {
+				display: none;
+			}
+
+			nav a {
+				display: inline;
+				margin-inline: 1rem;
+			}
+		}
+	</style>
+	<div id="outer-nav">
+		<div id="nav-container">
+			<div id="hamburger">
+				<img src="/static/icons/bars.svg"/>
+			</div>
+			<a href="/" class="unstyled-link"><h1>Herbal Bones</h1></a>
+			<div id="pop-out">
+				<aside id="pop-out-aside">
+					<div>
+						<h1>Herbal Bones</h1>
+						<nav>
+							<a href="/">Home</a>
+							<a href="/shop">Shop</a>
+							<a href="/contact">Contact</a>
+						</nav>
+					</div>
+					<div id="social-links">
+						<a href="https://www.instagram.com/herbal_bones" target="_blank">
+							<img src="/static/icons/instagram.svg"/>
+						</a>
+					</div>
+				</aside>
+			</div>
+		</div>
+	</div>
+	<script>
+		function onHamburgerClick() {
+			var popOut = document.getElementById("pop-out");
+			popOut.style.display = "block";
+
+			document.querySelector("body").classList.add("disable-scroll");
+		}
+
+		function onPopoutClick() {
+			var popOut = document.getElementById("pop-out");
+			popOut.style.display = "none";
+
+			document.querySelector("body").classList.remove("disable-scroll");
+		}
+
+		function onPopoutAsideClick(e) {
+			e.stopPropagation()
+		}
+
+		(() => {
+			document.getElementById("hamburger").addEventListener("click", onHamburgerClick);
+			document.getElementById("pop-out").addEventListener("click", onPopoutClick);
+			document.getElementById("pop-out-aside").addEventListener("click", onPopoutAsideClick);
+		})()
+	</script>
+}

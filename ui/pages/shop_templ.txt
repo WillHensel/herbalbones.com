@@ -1,0 +1,3 @@
+<style>\r\n\t\tbody {\r\n\t\t\tmargin: 0;\r\n\t\t\tbackground-color: #a8a6a1; \r\n\t\t}\r\n\t\t#hero-section {\r\n\t\t\tmargin-bottom: 6rem;\r\n\t\t}\r\n\r\n\t\t.product-section {\r\n\t\t\tmargin-inline: 2rem;\r\n\t\t\tmax-width: 1024px;\r\n\t\t}\r\n\r\n\t\t.product-section-content {\r\n\t\t\tmargin-block: 3rem;\r\n\t\t\tdisplay: grid;\r\n\t\t\tgrid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));\r\n\t\t\tgap: 2rem;\r\n\t\t}\r\n\r\n\t\t@media only screen and (min-width: 1024px) {\r\n\t\t\t.product-section {\r\n\t\t\t\tmargin-inline: auto;\r\n\t\t\t}\r\n\t\t}\r\n\t</style><main id=\"shop-main\">
+<section class=\"product-section\"><hr><div class=\"product-section-content\">
+</div></section></main>

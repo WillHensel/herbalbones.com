@@ -1,0 +1,185 @@
+package pages 
+
+import "web.herbalbones.com/ui/components"
+
+templ Home() {
+	@components.Layout(homeContent())
+}
+
+templ homeContent() {
+	<style>
+        body {
+            margin: 0;
+        }
+
+        #contact-section {
+            height: 45rem;
+            background-image: url("/static/images/home-contact-background.jpg");
+            background-position: bottom;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+	<main>
+		@components.HeroSection("bring fantasy to the real world", "")
+		@shopSection()
+		@aboutSection()
+		<section id="contact-section"></section>
+	</main>
+}
+
+templ shopSection() {
+	<style>
+        #shop-section {
+            background-color: #a8a6a1;
+        }
+
+            #shop-section h3 {
+                text-align: center;
+                margin-block: 0;
+                padding-block: 3rem;
+                font-size: 2.25em;
+                color: white;
+            }
+            #artwork-row {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-inline: 2rem;
+                max-width: 1024px;
+            }
+
+            #artwork-row .artwork-card {
+                max-width: 300px;
+                margin-inline: auto;
+            }
+
+            @media only screen and (min-width: 600px) {
+                #artwork-row {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                #artwork-row .artwork-card {
+                    max-width: 100%;
+                    margin-inline: 0;
+                }
+            }
+
+            @media only screen and (min-width: 1024px) {
+
+                #artwork-row {
+                    margin-inline: auto;
+                }
+
+            }
+
+
+        #action-row {
+            display: flex;
+            justify-content: center;
+            padding-block: 2rem;
+        }
+
+        #action-row > a {
+            padding: 1rem;
+            padding-inline: 1.5rem;
+            background-color: white;
+            color: #a5a6a7;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+    </style>
+	<section id="shop-section">
+		<h3>fantasy artwork</h3>
+		<div id="artwork-row">
+			@artworkCard("/static/images/artwork-everyday.jpg", "red necklace and earrings", "everyday wear")
+			@artworkCard("/static/images/artwork-statements.png", "red necklace", "bigger statements")
+			@artworkCard("/static/images/artwork-fantasy.jpeg", "red necklace with pearls", "fantasy")
+		</div>
+		<div id="action-row">
+			<a href="/shop">SHOP</a>
+		</div>
+	</section>
+}
+
+templ aboutSection() {
+	<style>
+        #about-section {
+            background-color: #dfe0e1;
+            padding-block: 3rem;
+        }
+        #about-section img {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 0.9;
+            object-fit: cover;
+        }
+        #about-section p {
+            font-size: 1.2em;
+            text-align: center;
+            margin-inline: 1.25rem;
+            color: #303030;
+            max-width: 50rem;
+        }
+
+        #about-section .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        @media only screen and (min-width: 1024px) {
+            #about-section .content-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 500px;
+                align-items: center;
+                margin-left: auto;
+            }
+            // #about-section img {
+            //     width: 100%;
+            // }
+        }
+
+    </style>
+	<section id="about-section">
+		<div class="content-wrapper">
+			<p>
+				Discover beautiful, handcrafted jewelry that brings harmony and balance to your soul.
+				Each piece is carefully made to blend fantasy with reality, offering a meaningful gift
+				for loved ones or a way to uplift your own spirit. Created in 2023, this jewelry
+				reflects my passion and dedication to perfecting my skills and appreciating the beauty
+				of jewelry. Dive into nature-inspired jewelry to elevate your cosplay experience, bringing
+				an otherworldly charm to your characters and stories.
+			</p>
+			<img src="/static/images/about.jpeg" alt="girl posing wearing red necklace"/>
+		</div>
+	</section>
+}
+
+templ artworkCard(imgUrl string, imgAlt string, text string) {
+	<style>
+        .artwork-card {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+            .artwork-card img {
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 0.7;
+                object-fit: cover;
+            }
+
+            .artwork-card p {
+                color: white;
+                font-size: 1.75em;
+            }
+    </style>
+	<div class="artwork-card">
+		<img src={ imgUrl } alt={ imgAlt }/>
+		<p class="serif">{ text }</p>
+	</div>
+}
