@@ -2,11 +2,20 @@ package pages
 
 import "web.herbalbones.com/ui/components"
 
-templ Contact() {
-	@components.Layout(contactContent())
+type ContactViewModel struct {
+	CSRFToken string
+	Name      string
+	Email     string
+	Message   string
+	Flash     string
+	Errors    map[string]string
 }
 
-templ contactContent() {
+templ Contact(vm ContactViewModel) {
+	@components.Layout(contactContent(vm))
+}
+
+templ contactContent(vm ContactViewModel) {
 	<style>
         body {
             margin: 0;
@@ -127,17 +136,24 @@ templ contactContent() {
 			<div>
 				<h2>Contact</h2>
 				<form action="/contact" method="POST">
-					@inputComponent("Name", "name", "text")
-					@inputComponent("Email", "email", "email")
+					<input type="hidden" name="csrf_token" value={ vm.CSRFToken }/>
+					@inputComponent("Name", "name", "text", vm.Name)
+					@inputComponent("Email", "email", "email", vm.Email)
 					@textAreaComponent("Message", "message", 15)
 					<button type="submit" id="send-message">Send Message</button>
 				</form>
+				if len(vm.Errors) > 0 {
+					<p class="validation-error">Validation errors, please double check</p>
+				}
+				if len(vm.Flash) > 0 {
+					<p>{ vm.Flash }</p>
+				}
 			</div>
 		</div>
 	</section>
 }
 
-templ inputComponent(label string, name string, inputType string) {
+templ inputComponent(label string, name string, inputType string, value string) {
 	<style>
         .input-label {
             display: block;
@@ -163,7 +179,10 @@ templ inputComponent(label string, name string, inputType string) {
     </style>
 	<div>
 		<label class="input-label" for={ name }>{ label }</label>
-		<input type={ inputType } name={ name }/>
+		// if len(err) > 0 {
+		// 	<span class="validation-error">{ err }</span>
+		// }
+		<input type={ inputType } name={ name } value={ value }/>
 	</div>
 }
 
