@@ -24,7 +24,7 @@ func (app *application) secureHeaders(next http.Handler) http.Handler {
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Security-Policy",
-			"default-src 'self'; style-src 'unsafe-inline' 'self' fonts.googleapis.com; font-src fonts.gstatic.com; script-src 'self' scripts.simpleanalyticscdn.com")
+			"default-src 'self'; style-src 'unsafe-inline' 'self' fonts.googleapis.com; font-src fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://scripts.simpleanalyticscdn.com; img-src 'self' https://queue.simpleanalyticscdn.com https://simpleanalyticsbadges.com https://herbal-bones.square.site; connect-src 'self' https://queue.simpleanalyticscdn.com;")
 
 		w.Header().Set("Referrer-Policy", "origin-when-cross-origin")
 		w.Header().Set("X-Content-Type-Options", "nosniff")
